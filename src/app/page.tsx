@@ -1,76 +1,74 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+"use client";
+
 import GitHubProjects from "@/components/GitHubProjects";
+import Scene3D from "@/components/Scene3D";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden bg-background">
-      {/* Background gradients */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-      
-      <div className="max-w-6xl mx-auto px-6 py-20 relative z-10">
+    <main className="min-h-screen relative overflow-hidden bg-background flex flex-col">
+      {/* Navigation */}
+      <nav className="w-full flex justify-between items-center px-10 py-6 border-b border-[#000000] z-20 bg-background relative">
+        <div className="text-body font-medium uppercase tracking-widest">
+          PLATFORM: SAURABH
+        </div>
+        <div className="flex gap-8">
+          <button className="text-body bg-transparent text-[#000000] border-none p-0 cursor-pointer hover:underline underline-offset-4">
+            GALLERY
+          </button>
+          <button className="text-body bg-transparent text-[#000000] border-none p-0 cursor-pointer hover:underline underline-offset-4">
+            EXHIBITIONS
+          </button>
+          <button className="text-body bg-transparent text-[#000000] border-none p-0 cursor-pointer hover:underline underline-offset-4">
+            CONTACT
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section with 3D Canvas */}
+      <section className="relative w-full min-h-[70vh] flex flex-col items-center justify-center border-b border-[#000000] overflow-hidden">
+        <Scene3D />
         
-        {/* Hero Section */}
-        <section className="flex flex-col justify-center min-h-[60vh] py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-primary font-mono mb-4 text-lg">Hi, my name is</h2>
-            <h1 className="text-5xl md:text-7xl font-extrabold font-sans text-foreground mb-4 tracking-tight">
-              Saurabh Shinde.
-            </h1>
-            <h1 className="text-4xl md:text-6xl font-bold font-sans text-gray-400 mb-8 tracking-tight">
-              I build scalable software.
-            </h1>
-            
-            <p className="max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
-              I am a <span className="text-primary font-semibold">Full-Stack Developer</span> (he/him) passionate about building scalable web applications, real-time systems, and AI integrations. I love turning complex problems into simple, beautiful, and intuitive designs.
-            </p>
-            
-            <div className="flex gap-6 items-center">
-              <a href="https://github.com/saurabh30-bit" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
-                <FaGithub size={28} />
-              </a>
-              <a href="mailto:your-email@example.com" className="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
-                <FaEnvelope size={28} />
-              </a>
-              {/* Add LinkedIn/Twitter if applicable */}
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
-                <FaLinkedin size={28} />
-              </a>
-            </div>
-          </motion.div>
-        </section>
+        <div className="relative z-10 text-center max-w-4xl px-6 pointer-events-none mix-blend-difference text-white">
+          <h1 className="text-heading-sm uppercase">
+            SAURABH SHINDE
+          </h1>
+          <p className="text-body-lg uppercase mt-4">
+            SOFTWARE EXHIBITION
+          </p>
+          <p className="text-body mt-8 max-w-2xl mx-auto">
+            Full-Stack Developer (he/him) passionate about building scalable web applications, real-time systems, and AI integrations. 
+          </p>
+        </div>
+      </section>
 
-        {/* Projects Section */}
-        <section className="py-20" id="projects">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold font-sans text-foreground">
-              Recent Projects
-            </h2>
-            <div className="h-[1px] bg-border flex-grow ml-4 max-w-sm" />
-          </motion.div>
-          
-          <GitHubProjects />
-        </section>
+      {/* Projects Exhibition Grid */}
+      <section className="py-[72px] px-10 w-full max-w-[1600px] mx-auto flex-grow relative z-10 bg-background">
+        <div className="flex justify-between items-end mb-[72px] border-b border-[#000000] pb-4">
+          <h2 className="text-body-lg uppercase">
+            Selected Works
+          </h2>
+          <span className="text-body uppercase">2023 — 2026</span>
+        </div>
+        
+        <GitHubProjects />
+      </section>
 
-        {/* Footer */}
-        <footer className="py-8 text-center text-gray-500 font-mono text-sm border-t border-border mt-20">
-          <p>Built with Next.js, Tailwind CSS & Framer Motion</p>
-          <p className="mt-2">Dynamically fetching data from GitHub API</p>
-        </footer>
-      </div>
+      {/* Footer */}
+      <footer className="w-full py-10 px-10 border-t border-[#000000] flex justify-between items-center z-10 bg-background">
+        <div className="text-caption uppercase">
+          © {new Date().getFullYear()} SAURABH SHINDE. ALL RIGHTS RESERVED.
+        </div>
+        <div className="flex gap-4">
+          <a href="https://github.com/saurabh30-bit" target="_blank" rel="noreferrer" className="text-caption uppercase hover:underline">
+            GITHUB
+          </a>
+          <a href="#" className="text-caption uppercase hover:underline">
+            LINKEDIN
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
