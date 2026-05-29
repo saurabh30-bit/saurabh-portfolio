@@ -20,11 +20,13 @@ function InteractiveSculpture() {
       <mesh ref={meshRef}>
         <torusKnotGeometry args={[1.5, 0.4, 256, 64]} />
         <MeshDistortMaterial 
-          color="#000000" 
+          color="#7132f5" 
           wireframe 
           distort={0.4} 
           speed={2} 
           wireframeLinewidth={2}
+          emissive="#7132f5"
+          emissiveIntensity={0.5}
         />
       </mesh>
     </Float>
