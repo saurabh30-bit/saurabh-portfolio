@@ -3,40 +3,41 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Text, Float, MeshDistortMaterial } from "@react-three/drei";
 
-function WireframeGeometry() {
-  const groupRef = useRef<THREE.Group>(null);
+function InteractiveSculpture() {
+  const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.x += delta * 0.1;
-      groupRef.current.rotation.y += delta * 0.15;
+    if (meshRef.current) {
+      meshRef.current.rotation.x += delta * 0.2;
+      meshRef.current.rotation.y += delta * 0.3;
     }
   });
 
   return (
-    <group ref={groupRef}>
-      {/* Outer Icosahedron */}
-      <mesh>
-        <icosahedronGeometry args={[2.5, 1]} />
-        <meshBasicMaterial color="#000000" wireframe wireframeLinewidth={1} transparent opacity={0.3} />
+    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <mesh ref={meshRef}>
+        <torusKnotGeometry args={[1.5, 0.4, 256, 64]} />
+        <MeshDistortMaterial 
+          color="#000000" 
+          wireframe 
+          distort={0.4} 
+          speed={2} 
+          wireframeLinewidth={2}
+        />
       </mesh>
-      
-      {/* Inner Octahedron */}
-      <mesh>
-        <octahedronGeometry args={[1.5, 0]} />
-        <meshBasicMaterial color="#000000" wireframe wireframeLinewidth={1.5} />
-      </mesh>
-    </group>
+    </Float>
   );
 }
 
 export default function Scene3D() {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <WireframeGeometry />
+    <div className="absolute inset-0 z-0 w-full h-full cursor-grab active:cursor-grabbing">
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+        <ambientLight intensity={1} />
+        <InteractiveSculpture />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
       </Canvas>
     </div>
   );
