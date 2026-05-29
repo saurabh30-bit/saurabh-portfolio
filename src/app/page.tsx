@@ -3,7 +3,9 @@
 "use client";
 
 import GitHubProjects from "@/components/GitHubProjects";
-import Scene3D from "@/components/Scene3D";
+import dynamic from "next/dynamic";
+
+const Scene3D = dynamic(() => import("@/components/Scene3D"), { ssr: false });
 
 export default function Home() {
   return (
