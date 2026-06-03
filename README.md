@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+  Kraken Fintech Portfolio
+</h1>
 
-## Getting Started
+<p align="center">
+  A high-performance, design-driven software engineering portfolio built with Next.js App Router, Tailwind v4, and React Three Fiber.
+</p>
 
-First, run the development server:
+<p align="center">
+  <a href="https://github.com/saurabh30-bit/saurabh-portfolio/actions/workflows/ci.yml">
+    <img src="https://github.com/saurabh30-bit/saurabh-portfolio/actions/workflows/ci.yml/badge.svg" alt="CI Status" />
+  </a>
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=flat&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TailwindCSS-v4-06B6D4?style=flat&logo=tailwindcss" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Three.js-R3F-black?style=flat&logo=three.js" alt="Three.js" />
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Overview
+
+This repository houses the source code for my personal developer portfolio. The architecture is heavily inspired by modern fintech design systems (codenamed "Kraken"), focusing on strict typography, high-contrast monochrome palettes with vibrant status indicators, and subtle 3D interactions.
+
+## 🏗️ Architecture
+
+The application is statically generated using Next.js to ensure lightning-fast Time to First Byte (TTFB) and perfect SEO scores.
+
+```mermaid
+graph TD
+    Client[Client Browser] --> |HTTP GET| Vercel[Vercel CDN Edge]
+    Vercel --> |Cache Hit| Static[Static HTML/JS/CSS]
+    Vercel --> |Cache Miss| NextJS[Next.js App Server]
+    
+    subgraph Next.js Architecture
+        NextJS --> AppRouter[App Router]
+        AppRouter --> ServerComponents[React Server Components]
+        AppRouter --> ClientComponents[Client Components]
+        ClientComponents --> R3F[React Three Fiber Canvas]
+        ClientComponents --> Tailwind[Tailwind v4 JIT]
+    end
+    
+    ServerComponents --> GitHubAPI[GitHub REST API]
+    GitHubAPI --> |Fetch Repositories| GitHubData[(GitHub)]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design System: "Kraken"
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The UI is built upon a custom token system implemented directly in `globals.css` using the new `@theme` API in Tailwind CSS v4.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   **Colors**: `Midnight Ink` (#101114), `Whisper Gray` (#f6f5f9), `Kraken Violet` (#7132f5)
+*   **Typography**: `Space Grotesk` for brand headlines, `Inter` for precise product copy.
+*   **Geometry**: Strict 8px border-radius for cards, ensuring a "regulated hardware" aesthetic.
 
-## Learn More
+## 💻 Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+To run this project on your local machine:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/saurabh30-bit/saurabh-portfolio.git
+    cd saurabh-portfolio
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4.  **Open the application:**
+    Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Continuous Integration (CI/CD)
+
+This project uses **GitHub Actions** for CI. Every push to the `main` branch triggers a workflow that:
+1.  Installs dependencies (`npm ci`)
+2.  Runs code linting (`npm run lint`)
+3.  Executes a production build (`npm run build`) to guarantee deployment safety.
+
+Upon a successful build, Vercel automatically deploys the application to production.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
