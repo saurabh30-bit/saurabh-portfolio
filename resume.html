@@ -49,7 +49,14 @@
             font-weight: 800;
             letter-spacing: -0.025em;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
         .contact-info {
@@ -126,8 +133,8 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
         }
 
         .skill-category {
@@ -140,12 +147,18 @@
             body {
                 background: none;
                 padding: 0;
+                font-size: 11pt;
             }
             .resume-container {
                 box-shadow: none;
                 padding: 0;
                 max-width: 100%;
             }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.1rem; margin-bottom: 0.5rem; padding-bottom: 0.2rem; }
+            .item { margin-bottom: 1rem; }
+            section { margin-bottom: 1.5rem; }
+            ul { font-size: 10pt; }
         }
     </style>
 </head>
@@ -153,6 +166,7 @@
     <div class="resume-container">
         <header>
             <h1>Saurabh Shinde</h1>
+            <p class="tagline">AI & Machine Learning Engineering Student | Founder @ CoreConstructs | Full-Stack Developer</p>
             <div class="contact-info">
                 <span>saurabhshinde.personal@gmail.com</span>
                 <span><a href="https://www.linkedin.com/in/saurabh-shinde-0889ba382" target="_blank">linkedin.com/in/saurabh-shinde</a></span>
@@ -162,8 +176,8 @@
 
         <section>
             <h2>Summary</h2>
-            <p style="color: var(--secondary);">
-                Innovative Full Stack Developer and AI Enthusiast with a passion for building scalable web applications. Proven ability to leverage modern technologies like React, Node.js, and Python to deliver high-performance solutions. Adept at system design and integrating AI capabilities into robust cloud architectures.
+            <p style="color: var(--secondary); text-align: justify;">
+                I am a Computer Science and Engineering student specializing in AI and Machine Learning at SSPM COE. My passion lies at the intersection of innovative software development and tangible social impact. I am deeply committed to building tools that solve actual problems—from creating accessibility applications like live sign-language translation dashboards to engineering civic workforce tracking systems. I thrive on the challenge of full-stack development, utilizing frameworks like Flutter, FastAPI, and Streamlit to bring complex concepts to life. Beyond writing code, I am a hands-on problem solver who frequently restores and optimizes legacy computing systems, proving that good engineering is about maximizing both software and hardware efficiency.
             </p>
         </section>
 
@@ -172,28 +186,81 @@
             
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Software Engineer</span>
-                    <span class="item-date">2024 – Present</span>
+                    <span class="item-title">Software Engineering Intern</span>
+                    <span class="item-date">Recent</span>
                 </div>
-                <div class="item-subtitle">Tech Solutions Inc.</div>
+                <div class="item-subtitle">Persevex</div>
                 <ul>
-                    <li>Spearheaded the development of a high-traffic e-commerce platform using React and Node.js, improving page load speeds by 40%.</li>
-                    <li>Designed and implemented RESTful APIs and optimized complex SQL queries to handle massive datasets efficiently.</li>
-                    <li>Integrated OpenAI APIs to create an intelligent chatbot, enhancing customer support automation.</li>
-                    <li>Established CI/CD pipelines using GitHub Actions and Docker, reducing deployment time by 50%.</li>
+                    <li>Completed an intensive internship focusing on modern software engineering practices and collaborative development.</li>
+                    <li>Contributed to active codebases, assisting in the development and optimization of technical solutions.</li>
                 </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Junior Developer</span>
-                    <span class="item-date">2022 – 2024</span>
+                    <span class="item-title">Founder & Freelance Developer</span>
+                    <span class="item-date">Present</span>
                 </div>
-                <div class="item-subtitle">Creative Web Agency</div>
+                <div class="item-subtitle">CoreConstructs</div>
                 <ul>
-                    <li>Developed responsive, interactive user interfaces for various client projects using HTML5, CSS3, and modern JavaScript.</li>
-                    <li>Collaborated closely with designers to ensure seamless UX/UI implementation.</li>
-                    <li>Maintained and debugged legacy codebases, ensuring optimal performance and compatibility.</li>
+                    <li>Launched a freelance application and website development brand by designing the core brand identity, promotional media, and service offerings.</li>
+                    <li>Delivered custom full-stack solutions for clients by leveraging modern development frameworks like Flutter and FastAPI to achieve scalable project goals and high client satisfaction.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Event Organizer & Coordinator</span>
+                    <span class="item-date">Feb 2026</span>
+                </div>
+                <div class="item-subtitle">SSPM COE Science Club</div>
+                <ul>
+                    <li>Executed "MindMaze 2026," a campus-wide science and technology event, by designing promotional materials and managing registrations for project competitions.</li>
+                    <li>Facilitated successful event operations and participant engagement by coordinating schedules and logistics for attendees and participants.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Live Multi-Lingual Sign Translation Dashboard</span>
+                </div>
+                <ul>
+                    <li>Developed a real-time accessibility translation tool by engineering a rule-based heuristic geometry algorithm using MediaPipe and Streamlit.</li>
+                    <li>Presented the fully functional application at the Virtuosic exhibition, successfully demonstrating its real-time capabilities.</li>
+                    <li>Formalized the project's technical findings by co-authoring a research paper in IEEE format alongside a five-person student research team.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Live Duty (Municipal Workforce & Vehicle Tracking System)</span>
+                </div>
+                <ul>
+                    <li>Engineered a comprehensive tracking platform for civic operations by integrating GPS-based attendance and complex geofencing logic.</li>
+                    <li>Built a highly responsive mobile interface using Flutter and connected it to a custom backend, ensuring seamless location tracking for workforce monitoring.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Legacy Hardware Optimization</span>
+                </div>
+                <ul>
+                    <li>Revived a non-functional legacy Lenovo 4151 laptop by bypassing hard drive controller freezes and successfully configuring AntiX Linux.</li>
+                    <li>Optimized the system for modern utility by navigating complex kernel issues (such as the Intel KMS White Screen error), significantly extending the hardware's usable lifespan.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">LegalEase AI</span>
+                </div>
+                <ul>
+                    <li>Initiated development on an AI-driven legal aid tool designed to simplify legal jargon for everyday users by leveraging modern full-stack development tools.</li>
                 </ul>
             </div>
         </section>
@@ -202,16 +269,16 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div>
-                    <span class="skill-category">Frontend:</span> React, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS
+                    <span class="skill-category">Core Focus:</span> Artificial Intelligence (AI), Machine Learning (ML), Full-Stack Development
                 </div>
                 <div>
-                    <span class="skill-category">Backend:</span> Node.js, Express, Python, RESTful APIs
+                    <span class="skill-category">Frameworks & Libraries:</span> Flutter, FastAPI, Streamlit, MediaPipe, HTML/CSS
                 </div>
                 <div>
-                    <span class="skill-category">Databases:</span> PostgreSQL, MongoDB, MySQL, Redis
+                    <span class="skill-category">Systems & Hardware:</span> Linux System Administration, Hardware Troubleshooting
                 </div>
                 <div>
-                    <span class="skill-category">Tools & Cloud:</span> Git, Docker, AWS, GitHub Actions, CI/CD
+                    <span class="skill-category">Professional Skills:</span> Technical Writing, Event Management, Project Collaboration, Cross-Functional Problem Solving
                 </div>
             </div>
         </section>
@@ -220,10 +287,10 @@
             <h2>Education</h2>
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Bachelor of Science in Computer Science</span>
-                    <span class="item-date">Graduated: 2022</span>
+                    <span class="item-title">Computer Science and Engineering (AI & ML)</span>
+                    <span class="item-date">Present</span>
                 </div>
-                <div class="item-subtitle">University of Technology</div>
+                <div class="item-subtitle">SSPM College of Engineering (SSPM COE)</div>
             </div>
         </section>
     </div>
